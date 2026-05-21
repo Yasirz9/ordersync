@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "COPS Order Relay",
+  "version": "1.0.0",
+  "description": "Bridges order lookup requests from the Lovable portal to cops.ptml.pk.",
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "cops-relay@lovable.app",
+      "strict_min_version": "115.0"
+    }
+  },
+  "permissions": ["storage", "alarms"],
+  "host_permissions": [
+    "https://cops.ptml.pk/*",
+    "http://cops.ptml.pk/*",
+    "https://efrnsluzwyhqkqfevaqe.supabase.co/*"
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "COPS Order Relay"
+  },
+  "background": {
+    "scripts": ["background.js"],
+    "type": "module"
+  },
+  "icons": {
+    "128": "icon.png"
+  }
+}

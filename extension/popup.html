@@ -1,0 +1,36 @@
+<!doctype html><html><head><meta charset="utf-8"/><title>COPS Order Relay</title>
+<style>
+:root{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-size:13px;color:#1a1a1a}
+body{margin:0;width:320px;padding:14px}h1{font-size:14px;margin:0 0 10px}
+.row{display:flex;align-items:center;gap:6px;margin:6px 0}
+.dot{width:8px;height:8px;border-radius:50%;background:#cbd5e1}.dot.on{background:#22c55e}.dot.off{background:#ef4444}
+input{width:100%;padding:6px 8px;border:1px solid #d1d5db;border-radius:4px;font-size:13px;box-sizing:border-box}
+button{width:100%;padding:7px 10px;border:0;border-radius:4px;background:#2563eb;color:#fff;font-size:13px;cursor:pointer}
+button.secondary{background:#f3f4f6;color:#1a1a1a}button:disabled{opacity:.6;cursor:default}
+label{font-size:11px;color:#6b7280;display:block;margin-bottom:3px;margin-top:8px}
+.muted{color:#6b7280;font-size:11px}.err{color:#b91c1c;font-size:11px;margin-top:6px;word-break:break-word}
+hr{border:0;border-top:1px solid #e5e7eb;margin:12px 0}details{margin-top:8px}summary{cursor:pointer;font-size:11px;color:#6b7280}
+</style></head><body>
+<h1>COPS Order Relay</h1>
+<div id="signedOut" style="display:none">
+  <p class="muted">Admin email/password se sign in karein.</p>
+  <label for="email">Email</label><input id="email" type="email" autocomplete="username"/>
+  <label for="pwd">Password</label><input id="pwd" type="password" autocomplete="current-password"/>
+  <div style="height:10px"></div><button id="signin">Sign in</button>
+  <div id="signinErr" class="err"></div>
+</div>
+<div id="signedIn" style="display:none">
+  <div class="row"><span id="dot" class="dot"></span><span id="state">Idle</span></div>
+  <div class="muted" id="lastPoll">Never polled</div>
+  <div class="muted">Processed: <span id="count">0</span></div>
+  <div class="err" id="err"></div>
+  <hr/><button id="pollNow">Poll now</button>
+  <div style="height:6px"></div><button class="secondary" id="signout">Sign out</button>
+  <details><summary>Portal URL settings</summary>
+    <label for="tmpl">URL template (use {order} placeholder)</label>
+    <input id="tmpl" placeholder="https://cops.ptml.pk/orders/search?orderNo={order}"/>
+    <div style="height:6px"></div><button class="secondary" id="saveTmpl">Save</button>
+  </details>
+</div>
+<script type="module" src="popup.js"></script>
+</body></html>
