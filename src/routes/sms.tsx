@@ -175,6 +175,10 @@ function SmsPanel() {
       mobile_number: searchRow.new_mobile || searchRow.mobile_number,
       email: searchRow.new_email || searchRow.email,
       customer_name: searchRow.customer_name,
+      customer_full_name: searchRow.customer_name,
+      mrc: (searchRow as any).mrc ?? null,
+      address: (searchRow as any).address ?? null,
+      billing_flag: (searchRow as any).billing_flag ?? null,
     };
 
     const row = await insertRequest(type, extra);
