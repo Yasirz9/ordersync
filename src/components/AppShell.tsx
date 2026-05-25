@@ -1,10 +1,8 @@
-// src/components/AppShell.tsx  — REPLACE existing file with this
-// Changes: Added "SMS" nav item pointing to /sms
-
+// src/components/AppShell.tsx
 import { Link, useLocation } from "@tanstack/react-router";
 import { useAuth } from "@/lib/auth";
 import { Button } from "@/components/ui/button";
-import { Package, LogOut, Search, Shield, Download, MessageSquare } from "lucide-react";
+import { Package, LogOut, Search, Shield, Download, MessageSquare, FileText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 export function AppShell({ children }: { children: React.ReactNode }) {
@@ -13,10 +11,11 @@ export function AppShell({ children }: { children: React.ReactNode }) {
   const isAdmin = role === "admin";
 
   const nav = [
-    { to: "/", label: "Search", icon: Search, show: true },
-    { to: "/sms", label: "SMS", icon: MessageSquare, show: true },   // ← new
-    { to: "/admin", label: "Admin", icon: Shield, show: isAdmin },
-    { to: "/setup", label: "Setup", icon: Download, show: isAdmin },
+    { to: "/",       label: "Search",       icon: Search,       show: true },
+    { to: "/sms",    label: "SMS",          icon: MessageSquare, show: true },
+    { to: "/submit", label: "Submit Order", icon: FileText,     show: true },
+    { to: "/admin",  label: "Admin",        icon: Shield,       show: isAdmin },
+    { to: "/setup",  label: "Setup",        icon: Download,     show: isAdmin },
   ].filter((n) => n.show);
 
   return (
